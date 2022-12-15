@@ -1,13 +1,16 @@
-const input = require('./inputs/day1');
+const input = require("./inputs/day1");
 
 let result = input.split("\n\n");
 result = result.reduce((acc, cur) => {
   let current = cur.split("\n");
-  let total = current.reduce((totalAcc, totalCurr) => totalAcc += parseInt(totalCurr), 0)
-  acc.push(total)
+  let total = current.reduce(
+    (totalAcc, totalCurr) => (totalAcc += parseInt(totalCurr)),
+    0
+  );
+  acc.push(parseInt(total));
   return acc;
-}, [])
+}, []);
 
-result = result.sort((a, b) => parseInt(b) - parseInt(a));
+result = result.sort((a, b) => b - a);
 console.log(result[0]);
-console.log(parseInt(result[0]) + parseInt(result[1]) + parseInt(result[2]))
+console.log(result[0] + result[1] + result[2]);
